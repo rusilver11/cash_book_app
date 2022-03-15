@@ -13,7 +13,7 @@ class OtpScreen extends StatelessWidget {
       onTap: ()=> FocusScope.of(context).unfocus(),
       child: Scaffold(
           appBar: AppBar(
-            iconTheme: IconThemeData(color: Colors.white),
+            automaticallyImplyLeading: false,
           ),
           body: otpBody.Body()
           ),

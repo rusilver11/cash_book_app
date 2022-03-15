@@ -17,7 +17,7 @@ class LoginScreen extends StatelessWidget {
       onTap: ()=> FocusScope.of(context).unfocus(),
       child: Scaffold(
         appBar: AppBar(
-          iconTheme: IconThemeData(color: Colors.white),
+          automaticallyImplyLeading: false,
         ),
         body: loginBody.Body()
       ),

@@ -20,28 +20,30 @@ class _BodyState extends State<Body> {
         child: Padding(
           padding:
               EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              SizedBox(height: SizeConfig.screenHeight * 0.04),
-              Text(
-                'Halo dari\nFien - Buku Kas',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: getProportionateScreenWidth(34),
-                  color: kPrimaryColor,
-                  fontWeight: FontWeight.bold,
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                SizedBox(height: SizeConfig.screenHeight * 0.04),
+                Text(
+                  'Halo dari\nFien - Buku Kas',
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    fontSize: getProportionateScreenWidth(34),
+                    color: kPrimaryColor,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              SizedBox(height: SizeConfig.screenHeight * 0.04),
-              const Text(
-                'Kami akan kirim kode OTP\nuntuk memverifikasi nomor telepon kamu.',
-                textAlign: TextAlign.left,
-              ),
-              SizedBox(height: SizeConfig.screenHeight * 0.08),
-              const LoginForm()
-            ],
+                SizedBox(height: SizeConfig.screenHeight * 0.04),
+                const Text(
+                  'Kami akan kirim kode OTP\nuntuk memverifikasi nomor telepon kamu.',
+                  textAlign: TextAlign.left,
+                ),
+                SizedBox(height: SizeConfig.screenHeight * 0.08),
+                const LoginForm()
+              ],
+            ),
           ),
         ),
       ),

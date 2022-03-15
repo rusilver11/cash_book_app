@@ -20,7 +20,7 @@ class _BodyState extends State<Body> {
 
   void _startTimer() {
     timerSecond = 60;
-    timer = Timer.periodic(Duration(seconds: 1), (_timer) {
+    Timer.periodic(Duration(seconds: 1), (_timer) {
       if (timerSecond > 0) {
         setState(() {
           timerSecond--;
@@ -57,12 +57,12 @@ class _BodyState extends State<Body> {
                       'Konfirmasi OTP',
                       textAlign: TextAlign.left,
                       style: TextStyle(
-                          fontSize: getProportionateScreenWidth(34),
+                          fontSize: getProportionateScreenWidth(40),
                           color: kPrimaryColor,
                           fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: SizeConfig.screenHeight * 0.04),
-                    Text(
+                    const Text(
                       'Kode OTP telah dikirim ke nomor WA anda\n+62 855 733 xxx',
                       textAlign: TextAlign.left,
                     ),
@@ -76,7 +76,7 @@ class _BodyState extends State<Body> {
                     timerSecond = 60;
                     timer?.cancel();
                   },
-                  child: Text(
+                  child: const Text(
                     'Kirim ulang kode OTP',
                     style: TextStyle(
                         color: kTextColor,
@@ -95,7 +95,7 @@ class _BodyState extends State<Body> {
   Row buildTimer() {
     return Row(
       children: [
-        Text('Kode ini akan kadaluarsa dalam '),
+        const Text('Kode ini akan kadaluarsa dalam '),
         Text('00:${timerSecond.toString()}')
       ],
     );

@@ -19,7 +19,7 @@ InputDecorationTheme inputDecorationTheme() {
 
   OutlineInputBorder outlineInputBorder = OutlineInputBorder(
         borderRadius: BorderRadius.circular(24),
-        borderSide: BorderSide(color: kTextColor),
+        borderSide: BorderSide(color: Color.fromRGBO(33, 37, 47, 0.65)),
         gapPadding: 10);
 
   return  InputDecorationTheme(
@@ -36,6 +36,6 @@ AppBarTheme appBarTheme() {
     elevation: 0,
     brightness: Brightness.light,
     iconTheme: IconThemeData(color: Colors.black),
-    titleTextStyle: TextStyle(color: Color(0XFF8B8B8B), fontSize: 18)
+    titleTextStyle: TextStyle(color: Color.fromRGBO(139, 139, 139, 1), fontSize: 18)
   );
 }

@@ -1,5 +1,7 @@
 import 'package:cash_book/components/default_button_icon.dart';
 import 'package:cash_book/constants.dart';
+import 'package:cash_book/library/keyboard.dart';
+import 'package:cash_book/page/home/home_screen.dart';
 import 'package:cash_book/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -107,8 +109,13 @@ void nextField(String value, FocusNode? focusNode){
           ),
           SizedBox(height: SizeConfig.screenHeight * 0.15),
           DefaultButtonIcon(
-            text: 'Lanjutkan',
-            press: (){},
+            text: 'Kirim',
+            press: (){
+              //validate n
+              //pass to dashboard
+              KeyboardUtil.hideKeyboard(context);
+              Navigator.pushNamed(context, HomeScreen.routeName);
+            },
             icon: Icons.whatsapp
             ),
         ],

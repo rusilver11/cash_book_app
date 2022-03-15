@@ -17,6 +17,8 @@ const kTextColor = Color.fromRGBO(33, 37, 47, 1);
 const kTextIIColor = Color.fromRGBO(248, 248, 248, 1);
 const kAnimationDuration = Duration(milliseconds: 200);
 
+const double kDefaultPadding = 20.0;
+
 //Form Error
 const String kPhoneNumberNullError = 'Tolong masukan nomor telepon';
 const String kPhoneNumberError = 'Nomor telepon yang dimasukan salah';
@@ -32,5 +34,5 @@ final otpInputDecoration = InputDecoration(
 
 OutlineInputBorder outlineInputBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(getProportionateScreenWidth(15)),
-    borderSide: BorderSide(color: kTextColor)
+    borderSide: BorderSide(color: Color.fromRGBO(33, 37, 47, 0.65))
     );
