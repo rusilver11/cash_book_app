@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:cash_book/constants.dart';
 import 'package:cash_book/page/home/component/home_card.dart';
+import 'package:cash_book/page/home/component/home_data_list.dart';
 import 'package:cash_book/page/home/component/home_header.dart';
 import 'package:cash_book/page/transaction/transaction_screen.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,16 @@ class Body extends StatefulWidget {
   @override
   State<Body> createState() => _BodyState();
 }
+  List<Map<String, String>> newTransaksi = [
+  {'Category': 'Makanan/Minuman', 'Total': '6 Transaksi'},
+  {'Category': 'Kosmetik/Alat Kecantikan', 'Total': '7 Transaksi'},
+  {'Category': 'Elektronik', 'Total': '2 Transaksi'}
+];
+  List<Map<String, String>> newAPAR = [
+  {'Category': 'Akang', 'Total': 'Rp15.000'},
+  {'Category': 'Bagas', 'Total': 'Rp100.000'},
+  {'Category': 'Apis', 'Total': 'Rp21.000'}
+];
 
 class _BodyState extends State<Body> {
   var defaultSelectedDate = 1;
@@ -64,53 +75,88 @@ class _BodyState extends State<Body> {
                 Navigator.pushNamed(context, TransactionScreen.routeName);
               },
             ),
-            Container(
-             padding: EdgeInsets.symmetric(
-              horizontal:getProportionateScreenWidth(18),
-              vertical:getProportionateScreenHeight(10) ),
-              child: Align(
-                alignment: Alignment.topCenter,
-                child: DataTable(
-                  columnSpacing: SizeConfig.screenWidth*0.2+18,
-                  horizontalMargin: kDefaultPadding,
-                  columns: const <DataColumn>[
-                    DataColumn(
-                      label: Text(
-                        'Transaksi baru',
-                        style: TextStyle(fontStyle: FontStyle.normal),
-                      ),
-                    ),
-                    DataColumn(
-                      label: Text(
-                        'Lihat semua',
-                        style: TextStyle(fontStyle: FontStyle.normal),
-                      ),
-                    ),
-                  ],
-                  rows: List<DataRow>.generate(
-                    5, 
-                    (index) =>
-                    DataRow(
-                      cells: <DataCell>[
-                        DataCell(ConstrainedBox(
-                          constraints: BoxConstraints(maxWidth: SizeConfig.screenWidth * 0.2),
-                          child:Text('Kecantikan/perawatan tubuh')
-                            )
-                          ),
-                        DataCell(ConstrainedBox(
-                          constraints: BoxConstraints(maxWidth: SizeConfig.screenWidth * 0.2),
-                          child:Text('6 Transaksi')
-                          )
-                          ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
+            const Divider(
+                color: kSecondaryColor,
+                thickness: 5.0,
+                endIndent: 22.0,
+                indent: 22.0),
+            HomeDataList(
+              dataCount: newTransaksi.length,
+              headerString: 'Transaksi anyar',
+              newTransaksi: newTransaksi,
             ),
+            const Divider(
+                color: kSecondaryColor,
+                thickness: 5.0,
+                endIndent: 22.0,
+                indent: 22.0),
+            HomeDataList(
+              dataCount: newTransaksi.length,
+              headerString: 'Hutang Piutang',
+              newTransaksi: newAPAR,
+            ),
+            const Divider(
+                color: kSecondaryColor,
+                thickness: 5.0,
+                endIndent: 22.0,
+                indent: 22.0),
           ],
         ),
       ),
     );
   }
 }
+
+// class dataTable extends StatelessWidget {
+//   const dataTable({
+//     Key? key,
+//   }) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       padding: EdgeInsets.symmetric(
+//           horizontal: getProportionateScreenWidth(18),
+//           vertical: getProportionateScreenHeight(10)),
+//       width: double.infinity,
+//       child: Align(
+//         alignment: Alignment.topCenter,
+//         child: DataTable(
+//           columnSpacing: SizeConfig.screenWidth * 0.3,
+//           horizontalMargin: kDefaultPadding,
+//           headingRowColor:
+//               MaterialStateColor.resolveWith((states) => Colors.black12),
+//           columns: const <DataColumn>[
+//             DataColumn(
+//               label: Text(
+//                 'Transaksi baru',
+//                 style: TextStyle(fontStyle: FontStyle.normal),
+//               ),
+//             ),
+//             DataColumn(
+//               label: Text(
+//                 'Lihat semua',
+//                 style: TextStyle(fontStyle: FontStyle.normal),
+//               ),
+//             ),
+//           ],
+//           rows: List<DataRow>.generate(
+//             5,
+//             (index) => DataRow(
+//               cells: <DataCell>[
+//                 DataCell(ConstrainedBox(
+//                     constraints:
+//                         BoxConstraints(maxWidth: SizeConfig.screenWidth * 0.2),
+//                     child: Text('Kecantikan/perawatan tubuh'))),
+//                 DataCell(ConstrainedBox(
+//                     constraints:
+//                         BoxConstraints(maxWidth: SizeConfig.screenWidth * 0.2),
+//                     child: Text('6 Transaksi'))),
+//               ],
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
