@@ -27,6 +27,10 @@ const String kPhoneNumberNullError = 'Tolong masukan nomor telepon';
 const String kPhoneNumberError = 'Nomor telepon yang dimasukan salah';
 const String kPhoneNumberMin = 'Nomor telepon minimal 10 digit';
 const String kPhoneNumberNumOnly = 'Nomor telepon hanya terdiri dari angka';
+const String kOtpNullError = 'Tolong masukan kode OTP';
+const String kOtpMin = 'Kode OTP minimal 5 digit';
+const String kLoading = 'Harap bersabar...';
+const String kServiceStop = 'Service sedang berhenti mohon tunggu';
 
 //OTP Input
 final otpInputDecoration = InputDecoration(

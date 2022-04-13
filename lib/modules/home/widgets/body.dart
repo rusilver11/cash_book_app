@@ -1,13 +1,17 @@
 import 'dart:ui';
 import 'package:cash_book/core/config/constants.dart';
+import 'package:cash_book/data/models/storage_items.dart';
+import 'package:cash_book/data/services/storage_services.dart';
+import 'package:cash_book/modules/home/home_controller.dart';
 import 'package:cash_book/modules/home/widgets/home_data_list.dart';
 import 'package:cash_book/modules/transaction/transaction_screen.dart';
 import 'package:cash_book/widgets/date_range.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'date_listview_button.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:get/get.dart';
 import 'home_card.dart';
 import 'home_header.dart';
+import '../../../data/services/api_services.dart';
 
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
@@ -27,11 +31,20 @@ class Body extends StatefulWidget {
 ];
 
 class _BodyState extends State<Body> {
+  final homeCtrl = Get.put(HomeController());
+
   var defaultSelectedDate = 1;
   var selectedDateAction;
 
   @override
+  void initState(){
+    super.initState();
+  }
+
+  
+  @override
   Widget build(BuildContext context) {
+    
     return SafeArea(
       child: SingleChildScrollView(
         child: Column(

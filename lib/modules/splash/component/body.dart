@@ -1,8 +1,8 @@
 import 'package:cash_book/core/config/constants.dart';
 import 'package:cash_book/core/config/size_config.dart';
-import 'package:cash_book/routes/route_name.dart';
 import 'package:cash_book/modules/login/login_screen.dart';
 import 'package:cash_book/modules/splash/component/splash_content.dart';
+import 'package:cash_book/routes/routes.dart';
 import 'package:cash_book/widgets/default_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -66,7 +66,7 @@ class _BodyState extends State<Body> {
                       DefaultButton(
                         text: 'Lanjutkan',
                         press: (){
-                          Get.off(()=>LoginScreen());
+                          Get.offNamed(AppRoute.getLoginRoute());
                         },
                       ),
                         Spacer(),
